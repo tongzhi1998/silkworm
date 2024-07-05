@@ -335,7 +335,7 @@ class DataModel {
     //! Read all block headers up to limit in reverse order from last, processing each one via a user defined callback
     void for_last_n_headers(size_t n, absl::FunctionRef<void(BlockHeader&&)> callback) const;
 
-  private:
+  public:
     static bool read_block_from_snapshot(BlockNum height, Block& block);
     static std::optional<BlockHeader> read_header_from_snapshot(BlockNum height);
     static std::optional<BlockHeader> read_header_from_snapshot(const Hash& hash);
